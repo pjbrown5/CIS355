@@ -1,0 +1,191 @@
+/*A few things from chatgpt in here, including the focus lines and the button:first/last-of-type lines*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #36393f; 
+    color: #dcddde; 
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff; 
+}
+
+
+nav {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #00b0f4; 
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    color: #0091c7;
+}
+
+
+#addMovieForm {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    padding: 20px;
+    background-color: #2f3136; 
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#addMovieForm input[type="text"],
+#addMovieForm input[type="number"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #40444b;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    background-color: #40444b; 
+    color: #dcddde; 
+    transition: border-color 0.3s;
+}
+
+#addMovieForm input[type="text"]:focus,
+#addMovieForm input[type="number"]:focus {
+    border-color: #7289da; 
+}
+
+#addMovieForm input[type="number"] {
+    width: 100px;
+}
+
+#addMovieForm button {
+    padding: 10px 20px;
+    background-color: #7289da;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#addMovieForm button:hover {
+    background-color: #677bc4;
+}
+
+
+ul {
+    list-style: none;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+ul li {
+    background-color: #2f3136;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+ul li strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+ul li strong a {
+    color: #00b0f4;
+    text-decoration: none;
+}
+
+ul li strong a:hover {
+    color: #0091c7;
+}
+
+ul li button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+ul li button:first-of-type {
+    background-color: #43b581;
+}
+
+ul li button:first-of-type:hover {
+    background-color: #3ca374;
+}
+
+ul li button:last-of-type { 
+    background-color: #f04747;
+}
+
+ul li button:last-of-type:hover {
+    background-color: #d83c3c;
+}
+
+
+ul li form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+ul li input[type="number"] {
+    width: 120px;
+    padding: 5px;
+    border: 1px solid #40444b;
+    border-radius: 4px;
+    background-color: #40444b;
+    color: #dcddde;
+}
+
+ul li textarea {
+    padding: 5px;
+    border: 1px solid #40444b;
+    border-radius: 4px;
+    resize: vertical;
+    background-color: #40444b;
+    color: #dcddde;
+}
+
+ul li form button { 
+    align-self: flex-start;
+    background-color: #faa61a; 
+    color: #ffffff;
+}
+
+ul li form button:hover {
+    background-color: #e69117;
+}
+
+
+p {
+    text-align: center;
+    color: #72767d; 
+}
+
+
+h1 {
+    color: #ffffff; 
+}

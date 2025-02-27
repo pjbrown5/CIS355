@@ -1,0 +1,28 @@
+
+<h1>{{title}}</h1>
+
+<ul>
+    {{#each movies}}
+        <li>
+            <strong><a href="/movies/{{id}}">{{title}} ({{year}})</a></strong>
+            <p>✅ Watched</p>
+            {{#if rating}}
+                <p>⭐ Rated: {{rating}}/5</p>
+                <p>Review: {{review}}</p>
+            {{else}}
+                <form onsubmit="submitRating('{{id}}'); return false;">
+                    <input type="number" min="1" max="5" id="rating-{{id}}" placeholder="Rate (1-5)" required />
+                    <textarea id="review-{{id}}" placeholder="Leave a review"></textarea>
+                    <button type="submit">Submit Review</button>
+                </form>
+            {{/if}}
+            <button onclick="deleteMovie({{id}})">Remove</button>
+        </li>
+    {{/each}}
+</ul>
+
+{{#unless movies}}
+    <p>No movies watched yet.</p>
+{{/unless}}
+
+<script src="/app.js"></script>

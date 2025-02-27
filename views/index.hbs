@@ -1,0 +1,82 @@
+
+<h1>{{title}}</h1>
+
+<form id="addMovieForm">
+    <input type="text" id="title" placeholder="Movie Title" required />
+    <input type="number" id="year" placeholder="Year" required />
+    <button type="submit">Add Movie</button>
+</form>
+
+<ul>
+    {{#each movies}}
+        <li>
+            <strong><a href="/movies/{{id}}">{{title}} ({{year}})</a></strong>
+            <button onclick="markWatched('{{id}}')">Mark as Watched</button>
+            <button onclick="deleteMovie({{id}})">Remove</button>
+        </li>
+    {{/each}}
+</ul>
+
+{{#unless movies}}
+    <p>No movies in your watchlist. Add one!</p>
+{{/unless}}
+
+
+<script>
+
+
+
+    //Mark as Watched front end function
+    async function markWatched(id) {
+        const response = await fetch(`/movies/${id}/watched`, {
+            method: "PUT",
+        });
+
+        if (response.ok) { 
+            window.location.reload();
+        } else {
+            alert("Failed to mark as watched");
+        }
+    }
+
+
+    //Delete movie button front end function
+    async function deleteMovie(id) { 
+        console.log("Attempting to delete movie with ID:", id);
+
+        const response = await fetch(`/movies/${id}`, { 
+            method: "DELETE",
+        });
+
+        if (response.ok) {
+            console.log("Movie deleted successfully")
+            window.location.reload();
+        } else {
+            console.error("Failed to delete movie")
+            alert("Failed to delete movie");
+        }
+    }
+
+
+    //Submit Rating front end function
+    async function submitRating(id) {
+        const rating = document.getElementById(`rating-${id}`).value;
+        const review = document.getElementById(`review-${id}`).value;
+
+        const response = await fetch(`/movies/${id}/review`, { 
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ rating, review }),
+        });
+
+        if (response.ok) {
+            window.location.reload();
+        } else { 
+            alert("Failed to submit rating/review");
+        }
+    }
+</script>
+<script src="/app.js"></script>
+
